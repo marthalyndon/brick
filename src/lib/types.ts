@@ -12,7 +12,7 @@ import type {
   IntensityZone,
   BreakType,
   BreakAdjustmentStrategy,
-} from "@/generated/prisma";
+} from "@/generated/prisma/client";
 
 // Re-export Prisma types for use across the app
 export type {

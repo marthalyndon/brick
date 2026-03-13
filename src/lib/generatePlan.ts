@@ -3,7 +3,7 @@ import type {
   GeneratedWorkout,
   RaceDistance,
 } from "./types";
-import type { ExperienceLevel, WorkoutGoal, WorkoutType } from "@/generated/prisma";
+import type { ExperienceLevel, WorkoutGoal, WorkoutType } from "@/generated/prisma/client";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
