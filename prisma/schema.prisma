@@ -1,0 +1,225 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── Enums ────────────────────────────────────────────────────────────────────
+
+enum WorkoutType {
+  SWIM
+  BIKE
+  RUN
+  BRICK
+  STRENGTH
+  REST
+  OTHER
+}
+
+enum WorkoutGoal {
+  ENDURANCE
+  TEMPO
+  INTERVALS
+  RECOVERY
+  RACE_PACE
+  OPEN_WATER
+  TECHNIQUE
+  FREE
+}
+
+enum BreakType {
+  VACATION
+  ILLNESS
+  INJURY
+  PERSONAL
+  TAPER
+  OTHER
+}
+
+enum BreakAdjustmentStrategy {
+  PUSH_FORWARD
+  SKIP_DAYS
+  MANUAL
+}
+
+enum ExperienceLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+  ELITE
+}
+
+enum PlanMode {
+  AUTO
+  MANUAL
+  HYBRID
+}
+
+enum IntensityZone {
+  Z1_RECOVERY
+  Z2_ENDURANCE
+  Z3_TEMPO
+  Z4_THRESHOLD
+  Z5_MAX
+}
+
+// ─── Models ───────────────────────────────────────────────────────────────────
+
+model User {
+  id                  String          @id @default(cuid())
+  email               String          @unique
+  name                String?
+  avatarUrl           String?
+  experienceLevel     ExperienceLevel @default(BEGINNER)
+  preferredDistUnit   String          @default("km")     // "km" | "mi"
+  preferredPaceUnit   String          @default("min/km") // "min/km" | "min/mi" | "mph" | "kph"
+  timezone            String          @default("UTC")
+  activePlanId        String?
+
+  plans               Plan[]
+  plannedWorkouts     PlannedWorkout[]
+  workoutLogs         WorkoutLog[]
+  planBreaks          PlanBreak[]
+
+  createdAt           DateTime        @default(now())
+  updatedAt           DateTime        @updatedAt
+}
+
+model Plan {
+  id               String    @id @default(cuid())
+  userId           String
+  name             String
+  mode             PlanMode  @default(AUTO)
+  startDate        DateTime
+  endDate          DateTime
+  raceDate         DateTime?
+  raceName         String?
+  weeklyGoalHours  Float?
+
+  // Paces stored as seconds; FTP as watts
+  currentSwimPace  Int?      // seconds per 100m
+  currentBikeFTP   Int?      // watts
+  currentRunPace   Int?      // seconds per km
+  goalSwimPace     Int?
+  goalBikeFTP      Int?
+  goalRunPace      Int?
+
+  notes            String?
+  archivedAt       DateTime?
+
+  user             User             @relation(fields: [userId], references: [id])
+  plannedWorkouts  PlannedWorkout[]
+  planBreaks       PlanBreak[]
+
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+}
+
+model PlannedWorkout {
+  id             String      @id @default(cuid())
+  planId         String
+  userId         String
+  scheduledDate  DateTime
+  type           WorkoutType
+  goal           WorkoutGoal?
+  title          String
+  description    String?
+
+  // Targets: distances in meters, paces in seconds
+  targetDuration   Int?      // seconds
+  targetDistance   Int?      // meters
+  targetPace       Int?      // seconds per km (run) or per 100m (swim)
+  targetPower      Int?      // watts (bike)
+
+  sortOrder      Int         @default(0)
+  isDayOff       Boolean     @default(false)
+
+  logId          String?     @unique
+  completedAt    DateTime?
+
+  plan           Plan        @relation(fields: [planId], references: [id])
+  user           User        @relation(fields: [userId], references: [id])
+  log            WorkoutLog? @relation("OfficialLog", fields: [logId], references: [id])
+  logs           WorkoutLog[] @relation("LinkedPlanned")
+
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  @@index([userId, scheduledDate])
+}
+
+model WorkoutLog {
+  id                String        @id @default(cuid())
+  userId            String
+  plannedWorkoutId  String?
+
+  type              WorkoutType
+  goal              WorkoutGoal?
+  title             String
+  notes             String?
+
+  startedAt         DateTime
+  endedAt           DateTime?
+  duration          Int?          // seconds
+  distance          Int?          // meters
+  avgPace           Int?          // seconds per km or per 100m
+  avgPower          Int?          // watts
+  avgHeartRate      Int?          // bpm
+  maxHeartRate      Int?          // bpm
+  calories          Int?
+
+  perceivedEffort   Int?          // 1–10
+  intensityZone     IntensityZone?
+  feelRating        Int?          // 1–5
+
+  externalSource    String?       // "garmin" | "strava" | "wahoo" | etc.
+  externalId        String?
+
+  user              User          @relation(fields: [userId], references: [id])
+  sets              WorkoutSet[]
+  plannedWorkout    PlannedWorkout? @relation("LinkedPlanned", fields: [plannedWorkoutId], references: [id])
+  officialFor       PlannedWorkout? @relation("OfficialLog")
+
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  @@index([userId, startedAt])
+}
+
+model WorkoutSet {
+  id         String        @id @default(cuid())
+  logId      String
+  setNumber  Int
+  label      String?
+  distance   Int?          // meters
+  duration   Int?          // seconds
+  pace       Int?          // seconds per unit
+  power      Int?          // watts
+  heartRate  Int?          // bpm
+  zone       IntensityZone?
+  isRest     Boolean       @default(false)
+
+  log        WorkoutLog    @relation(fields: [logId], references: [id])
+
+  createdAt  DateTime      @default(now())
+}
+
+model PlanBreak {
+  id                 String                  @id @default(cuid())
+  planId             String
+  userId             String
+  startDate          DateTime
+  endDate            DateTime
+  type               BreakType
+  adjustmentStrategy BreakAdjustmentStrategy @default(SKIP_DAYS)
+  notes              String?
+
+  plan               Plan                    @relation(fields: [planId], references: [id])
+  user               User                    @relation(fields: [userId], references: [id])
+
+  createdAt          DateTime                @default(now())
+  updatedAt          DateTime                @updatedAt
+}
