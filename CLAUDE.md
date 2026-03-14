@@ -17,7 +17,7 @@
 
 1. ✅ Data model designed
 2. ✅ Next.js project scaffolded
-3. ⬜ Prisma schema file + seed script (solo user)
+3. ✅ Prisma schema file + seed script (solo user)
 4. ⬜ Figma library complete → component library
 5. ⬜ MCP tool definitions
 6. ⬜ Auth (NextAuth) — post-MVP
@@ -30,7 +30,7 @@ Auth is deferred. There is one hardcoded user seeded at migration time.
 
 ```ts
 // lib/constants.ts
-export const SOLO_USER_ID = "cld_your_seeded_user_id_here";
+export const SOLO_USER_ID = "cld_solo_user_placeholder";
 ```
 
 - All service layer functions use `SOLO_USER_ID` — never derive from session

@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* ── Font ─────────────────────────────────────────────── */
+  --font-sans: var(--font-jakarta), sans-serif;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* ── Brand colors ─────────────────────────────────────── */
+  --color-core-primary:    #161414;
+  --color-core-background: #ffffff;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-core-gray-100:   #f0f2f2;
+  --color-core-gray-200:   #d8dcdc;
+  --color-core-gray-300:   #a7afaf;
+  --color-core-gray-400:   #6c7676;
+  --color-core-gray-500:   #40494a;
+
+  --color-core-accent:       #00b9c3;
+  --color-core-accent-light: rgba(0, 209, 220, 0.15);
+
+  /* ── Sports ───────────────────────────────────────────── */
+  --color-sports-swim:           #0077ff;
+  --color-sports-swim-light:     rgba(0, 119, 255, 0.15);
+  --color-sports-bike:           #f160c3;
+  --color-sports-bike-light:     rgba(241, 96, 195, 0.15);
+  --color-sports-run:            #9731e6;
+  --color-sports-run-light:      rgba(151, 49, 230, 0.15);
+  --color-sports-strength:       #f98d2e;
+  --color-sports-strength-light: rgba(249, 141, 46, 0.15);
+
+  /* ── States ───────────────────────────────────────────── */
+  --color-core-error:         #ff3f53;
+  --color-core-error-light:   rgba(255, 63, 83, 0.15);
+  --color-core-success:       #1cecaa;
+  --color-core-success-light: rgba(28, 236, 170, 0.15);
+  --color-core-warning:       #eabf01;
+  --color-core-warning-light: rgba(234, 191, 1, 0.15);
+
+  /* ── Border radius ────────────────────────────────────── */
+  --radius-s: 4px;
+  --radius-m: 8px;
+  --radius-l: 16px;
+
+  /* ── Shadows ──────────────────────────────────────────── */
+  --shadow-card: 0px 8px 12px 0px rgba(22, 20, 20, 0.1);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-core-background);
+  color: var(--color-core-primary);
+  font-family: var(--font-sans);
 }
