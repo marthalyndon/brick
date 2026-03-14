@@ -86,3 +86,53 @@ export async function getWorkoutHistory(filters?: {
     skip: filters?.offset ?? 0,
   });
 }
+
+/** Snaps a date back to the Monday of its week (exported for testing). */
+export function weekStart(date: Date): Date {
+  const d = new Date(date);
+  d.setHours(0, 0, 0, 0);
+  const day = d.getDay(); // 0=Sun … 6=Sat
+  d.setDate(d.getDate() - ((day + 6) % 7)); // shift back to Monday
+  return d;
+}
+
+/**
+ * Returns the next `limit` planned workouts that are scheduled strictly
+ * after today, excluding day-offs.
+ */
+export async function getUpcomingWorkouts(
+  limit = 3
+): Promise<PlannedWorkout[]> {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  return prisma.plannedWorkout.findMany({
+    where: {
+      userId: SOLO_USER_ID,
+      scheduledDate: { gte: tomorrow },
+      isDayOff: false,
+    },
+    orderBy: [{ scheduledDate: "asc" }, { sortOrder: "asc" }],
+    take: limit,
+  });
+}
+
+/**
+ * Returns all planned workouts for the Mon–Sun week containing `weekOf`.
+ * Includes logId so the UI can determine completion status.
+ */
+export async function getWeekWorkouts(weekOf: Date): Promise<PlannedWorkout[]> {
+  const start = weekStart(weekOf);
+  const end = new Date(start);
+  end.setDate(end.getDate() + 7);
+
+  return prisma.plannedWorkout.findMany({
+    where: {
+      userId: SOLO_USER_ID,
+      scheduledDate: { gte: start, lt: end },
+    },
+    orderBy: [{ scheduledDate: "asc" }, { sortOrder: "asc" }],
+  });
+}
