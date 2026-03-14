@@ -9,7 +9,6 @@ import type {
   WorkoutGoal,
   ExperienceLevel,
   PlanMode,
-  IntensityZone,
   BreakType,
   BreakAdjustmentStrategy,
 } from "@/generated/prisma/client";
@@ -26,7 +25,6 @@ export type {
   WorkoutGoal,
   ExperienceLevel,
   PlanMode,
-  IntensityZone,
   BreakType,
   BreakAdjustmentStrategy,
 };
@@ -58,7 +56,6 @@ export type LogWorkoutInput = {
   title: string;
   notes?: string;
   startedAt: Date;
-  endedAt?: Date;
   duration?: number;
   distance?: number;
   avgPace?: number;
@@ -67,8 +64,6 @@ export type LogWorkoutInput = {
   maxHeartRate?: number;
   calories?: number;
   perceivedEffort?: number;
-  intensityZone?: IntensityZone;
-  feelRating?: number;
 };
 
 export type WeeklyStats = {
