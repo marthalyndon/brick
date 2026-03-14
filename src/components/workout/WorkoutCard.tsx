@@ -18,6 +18,7 @@ interface WorkoutCardProps {
   goal?: WorkoutGoal | null;
   targetDuration?: number | null;   // seconds
   targetDistance?: number | null;   // meters
+  dateLabel?: string;
   className?: string;
   onComplete?: () => void;
   onSkip?: () => void;
@@ -67,6 +68,7 @@ export function WorkoutCard({
   goal,
   targetDuration,
   targetDistance,
+  dateLabel,
   className = "",
   onComplete,
   onSkip,
@@ -85,7 +87,7 @@ export function WorkoutCard({
         ${className}
       `.trim()}
     >
-      {/* Header row: sport tag + goal chip */}
+      {/* Header row: sport tag + goal chip + optional date label */}
       <div className="flex items-center gap-2">
         <Tag type={type} icon={<SportIcon type={type} />}>
           {type.charAt(0) + type.slice(1).toLowerCase()}
@@ -99,13 +101,18 @@ export function WorkoutCard({
         {version === "skip" && (
           <Chip type="grey">Skipped</Chip>
         )}
+        {dateLabel && size === "upcoming" && (
+          <span className="ml-auto text-[11px] font-semibold tracking-wide text-core-gray-400 uppercase">
+            {dateLabel}
+          </span>
+        )}
       </div>
 
       {/* Title */}
       <p className="text-[24px] font-bold text-core-primary leading-[1.2]">{title}</p>
 
       {/* Stats */}
-      {(targetDuration != null || targetDistance != null) && (
+      {type !== "REST" && (targetDuration != null || targetDistance != null) && (
         <div className="flex items-center gap-2">
           {targetDuration != null && (
             <span className="flex items-center gap-1 text-[12px] font-medium text-core-primary">
