@@ -956,7 +956,6 @@ export const PlannedWorkoutScalarFieldEnum = {
   sortOrder: 'sortOrder',
   isDayOff: 'isDayOff',
   logId: 'logId',
-  completedAt: 'completedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -973,7 +972,6 @@ export const WorkoutLogScalarFieldEnum = {
   title: 'title',
   notes: 'notes',
   startedAt: 'startedAt',
-  endedAt: 'endedAt',
   duration: 'duration',
   distance: 'distance',
   avgPace: 'avgPace',
@@ -982,8 +980,6 @@ export const WorkoutLogScalarFieldEnum = {
   maxHeartRate: 'maxHeartRate',
   calories: 'calories',
   perceivedEffort: 'perceivedEffort',
-  intensityZone: 'intensityZone',
-  feelRating: 'feelRating',
   externalSource: 'externalSource',
   externalId: 'externalId',
   createdAt: 'createdAt',
@@ -1003,7 +999,6 @@ export const WorkoutSetScalarFieldEnum = {
   pace: 'pace',
   power: 'power',
   heartRate: 'heartRate',
-  zone: 'zone',
   isRest: 'isRest',
   createdAt: 'createdAt'
 } as const
@@ -1173,20 +1168,6 @@ export type ListEnumWorkoutGoalFieldRefInput<$PrismaModel> = FieldRefInputType<$
  * Reference to a field of type 'Boolean'
  */
 export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
-    
-
-
-/**
- * Reference to a field of type 'IntensityZone'
- */
-export type EnumIntensityZoneFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntensityZone'>
-    
-
-
-/**
- * Reference to a field of type 'IntensityZone[]'
- */
-export type ListEnumIntensityZoneFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntensityZone[]'>
     
 
 

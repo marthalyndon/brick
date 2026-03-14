@@ -297,23 +297,6 @@ export type BoolWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedBoolFilter<$PrismaModel>
 }
 
-export type EnumIntensityZoneNullableFilter<$PrismaModel = never> = {
-  equals?: $Enums.IntensityZone | Prisma.EnumIntensityZoneFieldRefInput<$PrismaModel> | null
-  in?: $Enums.IntensityZone[] | Prisma.ListEnumIntensityZoneFieldRefInput<$PrismaModel> | null
-  notIn?: $Enums.IntensityZone[] | Prisma.ListEnumIntensityZoneFieldRefInput<$PrismaModel> | null
-  not?: Prisma.NestedEnumIntensityZoneNullableFilter<$PrismaModel> | $Enums.IntensityZone | null
-}
-
-export type EnumIntensityZoneNullableWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.IntensityZone | Prisma.EnumIntensityZoneFieldRefInput<$PrismaModel> | null
-  in?: $Enums.IntensityZone[] | Prisma.ListEnumIntensityZoneFieldRefInput<$PrismaModel> | null
-  notIn?: $Enums.IntensityZone[] | Prisma.ListEnumIntensityZoneFieldRefInput<$PrismaModel> | null
-  not?: Prisma.NestedEnumIntensityZoneNullableWithAggregatesFilter<$PrismaModel> | $Enums.IntensityZone | null
-  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumIntensityZoneNullableFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumIntensityZoneNullableFilter<$PrismaModel>
-}
-
 export type EnumBreakTypeFilter<$PrismaModel = never> = {
   equals?: $Enums.BreakType | Prisma.EnumBreakTypeFieldRefInput<$PrismaModel>
   in?: $Enums.BreakType[] | Prisma.ListEnumBreakTypeFieldRefInput<$PrismaModel>
@@ -631,23 +614,6 @@ export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedBoolFilter<$PrismaModel>
   _max?: Prisma.NestedBoolFilter<$PrismaModel>
-}
-
-export type NestedEnumIntensityZoneNullableFilter<$PrismaModel = never> = {
-  equals?: $Enums.IntensityZone | Prisma.EnumIntensityZoneFieldRefInput<$PrismaModel> | null
-  in?: $Enums.IntensityZone[] | Prisma.ListEnumIntensityZoneFieldRefInput<$PrismaModel> | null
-  notIn?: $Enums.IntensityZone[] | Prisma.ListEnumIntensityZoneFieldRefInput<$PrismaModel> | null
-  not?: Prisma.NestedEnumIntensityZoneNullableFilter<$PrismaModel> | $Enums.IntensityZone | null
-}
-
-export type NestedEnumIntensityZoneNullableWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.IntensityZone | Prisma.EnumIntensityZoneFieldRefInput<$PrismaModel> | null
-  in?: $Enums.IntensityZone[] | Prisma.ListEnumIntensityZoneFieldRefInput<$PrismaModel> | null
-  notIn?: $Enums.IntensityZone[] | Prisma.ListEnumIntensityZoneFieldRefInput<$PrismaModel> | null
-  not?: Prisma.NestedEnumIntensityZoneNullableWithAggregatesFilter<$PrismaModel> | $Enums.IntensityZone | null
-  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumIntensityZoneNullableFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumIntensityZoneNullableFilter<$PrismaModel>
 }
 
 export type NestedEnumBreakTypeFilter<$PrismaModel = never> = {

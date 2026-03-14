@@ -58,7 +58,6 @@ export type PlannedWorkoutMinAggregateOutputType = {
   sortOrder: number | null
   isDayOff: boolean | null
   logId: string | null
-  completedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -79,7 +78,6 @@ export type PlannedWorkoutMaxAggregateOutputType = {
   sortOrder: number | null
   isDayOff: boolean | null
   logId: string | null
-  completedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -100,7 +98,6 @@ export type PlannedWorkoutCountAggregateOutputType = {
   sortOrder: number
   isDayOff: number
   logId: number
-  completedAt: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -139,7 +136,6 @@ export type PlannedWorkoutMinAggregateInputType = {
   sortOrder?: true
   isDayOff?: true
   logId?: true
-  completedAt?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -160,7 +156,6 @@ export type PlannedWorkoutMaxAggregateInputType = {
   sortOrder?: true
   isDayOff?: true
   logId?: true
-  completedAt?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -181,7 +176,6 @@ export type PlannedWorkoutCountAggregateInputType = {
   sortOrder?: true
   isDayOff?: true
   logId?: true
-  completedAt?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -289,7 +283,6 @@ export type PlannedWorkoutGroupByOutputType = {
   sortOrder: number
   isDayOff: boolean
   logId: string | null
-  completedAt: Date | null
   createdAt: Date
   updatedAt: Date
   _count: PlannedWorkoutCountAggregateOutputType | null
@@ -333,7 +326,6 @@ export type PlannedWorkoutWhereInput = {
   sortOrder?: Prisma.IntFilter<"PlannedWorkout"> | number
   isDayOff?: Prisma.BoolFilter<"PlannedWorkout"> | boolean
   logId?: Prisma.StringNullableFilter<"PlannedWorkout"> | string | null
-  completedAt?: Prisma.DateTimeNullableFilter<"PlannedWorkout"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"PlannedWorkout"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"PlannedWorkout"> | Date | string
   plan?: Prisma.XOR<Prisma.PlanScalarRelationFilter, Prisma.PlanWhereInput>
@@ -358,7 +350,6 @@ export type PlannedWorkoutOrderByWithRelationInput = {
   sortOrder?: Prisma.SortOrder
   isDayOff?: Prisma.SortOrder
   logId?: Prisma.SortOrderInput | Prisma.SortOrder
-  completedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   plan?: Prisma.PlanOrderByWithRelationInput
@@ -386,7 +377,6 @@ export type PlannedWorkoutWhereUniqueInput = Prisma.AtLeast<{
   targetPower?: Prisma.IntNullableFilter<"PlannedWorkout"> | number | null
   sortOrder?: Prisma.IntFilter<"PlannedWorkout"> | number
   isDayOff?: Prisma.BoolFilter<"PlannedWorkout"> | boolean
-  completedAt?: Prisma.DateTimeNullableFilter<"PlannedWorkout"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"PlannedWorkout"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"PlannedWorkout"> | Date | string
   plan?: Prisma.XOR<Prisma.PlanScalarRelationFilter, Prisma.PlanWhereInput>
@@ -411,7 +401,6 @@ export type PlannedWorkoutOrderByWithAggregationInput = {
   sortOrder?: Prisma.SortOrder
   isDayOff?: Prisma.SortOrder
   logId?: Prisma.SortOrderInput | Prisma.SortOrder
-  completedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.PlannedWorkoutCountOrderByAggregateInput
@@ -440,7 +429,6 @@ export type PlannedWorkoutScalarWhereWithAggregatesInput = {
   sortOrder?: Prisma.IntWithAggregatesFilter<"PlannedWorkout"> | number
   isDayOff?: Prisma.BoolWithAggregatesFilter<"PlannedWorkout"> | boolean
   logId?: Prisma.StringNullableWithAggregatesFilter<"PlannedWorkout"> | string | null
-  completedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"PlannedWorkout"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"PlannedWorkout"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"PlannedWorkout"> | Date | string
 }
@@ -458,7 +446,6 @@ export type PlannedWorkoutCreateInput = {
   targetPower?: number | null
   sortOrder?: number
   isDayOff?: boolean
-  completedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   plan: Prisma.PlanCreateNestedOneWithoutPlannedWorkoutsInput
@@ -483,7 +470,6 @@ export type PlannedWorkoutUncheckedCreateInput = {
   sortOrder?: number
   isDayOff?: boolean
   logId?: string | null
-  completedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   logs?: Prisma.WorkoutLogUncheckedCreateNestedManyWithoutPlannedWorkoutInput
@@ -502,7 +488,6 @@ export type PlannedWorkoutUpdateInput = {
   targetPower?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   isDayOff?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   plan?: Prisma.PlanUpdateOneRequiredWithoutPlannedWorkoutsNestedInput
@@ -527,7 +512,6 @@ export type PlannedWorkoutUncheckedUpdateInput = {
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   isDayOff?: Prisma.BoolFieldUpdateOperationsInput | boolean
   logId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   logs?: Prisma.WorkoutLogUncheckedUpdateManyWithoutPlannedWorkoutNestedInput
@@ -549,7 +533,6 @@ export type PlannedWorkoutCreateManyInput = {
   sortOrder?: number
   isDayOff?: boolean
   logId?: string | null
-  completedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -567,7 +550,6 @@ export type PlannedWorkoutUpdateManyMutationInput = {
   targetPower?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   isDayOff?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -588,7 +570,6 @@ export type PlannedWorkoutUncheckedUpdateManyInput = {
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   isDayOff?: Prisma.BoolFieldUpdateOperationsInput | boolean
   logId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -619,7 +600,6 @@ export type PlannedWorkoutCountOrderByAggregateInput = {
   sortOrder?: Prisma.SortOrder
   isDayOff?: Prisma.SortOrder
   logId?: Prisma.SortOrder
-  completedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -648,7 +628,6 @@ export type PlannedWorkoutMaxOrderByAggregateInput = {
   sortOrder?: Prisma.SortOrder
   isDayOff?: Prisma.SortOrder
   logId?: Prisma.SortOrder
-  completedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -669,7 +648,6 @@ export type PlannedWorkoutMinOrderByAggregateInput = {
   sortOrder?: Prisma.SortOrder
   isDayOff?: Prisma.SortOrder
   logId?: Prisma.SortOrder
-  completedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -852,7 +830,6 @@ export type PlannedWorkoutCreateWithoutUserInput = {
   targetPower?: number | null
   sortOrder?: number
   isDayOff?: boolean
-  completedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   plan: Prisma.PlanCreateNestedOneWithoutPlannedWorkoutsInput
@@ -875,7 +852,6 @@ export type PlannedWorkoutUncheckedCreateWithoutUserInput = {
   sortOrder?: number
   isDayOff?: boolean
   logId?: string | null
-  completedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   logs?: Prisma.WorkoutLogUncheckedCreateNestedManyWithoutPlannedWorkoutInput
@@ -926,7 +902,6 @@ export type PlannedWorkoutScalarWhereInput = {
   sortOrder?: Prisma.IntFilter<"PlannedWorkout"> | number
   isDayOff?: Prisma.BoolFilter<"PlannedWorkout"> | boolean
   logId?: Prisma.StringNullableFilter<"PlannedWorkout"> | string | null
-  completedAt?: Prisma.DateTimeNullableFilter<"PlannedWorkout"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"PlannedWorkout"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"PlannedWorkout"> | Date | string
 }
@@ -944,7 +919,6 @@ export type PlannedWorkoutCreateWithoutPlanInput = {
   targetPower?: number | null
   sortOrder?: number
   isDayOff?: boolean
-  completedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutPlannedWorkoutsInput
@@ -967,7 +941,6 @@ export type PlannedWorkoutUncheckedCreateWithoutPlanInput = {
   sortOrder?: number
   isDayOff?: boolean
   logId?: string | null
-  completedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   logs?: Prisma.WorkoutLogUncheckedCreateNestedManyWithoutPlannedWorkoutInput
@@ -1012,7 +985,6 @@ export type PlannedWorkoutCreateWithoutLogsInput = {
   targetPower?: number | null
   sortOrder?: number
   isDayOff?: boolean
-  completedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   plan: Prisma.PlanCreateNestedOneWithoutPlannedWorkoutsInput
@@ -1036,7 +1008,6 @@ export type PlannedWorkoutUncheckedCreateWithoutLogsInput = {
   sortOrder?: number
   isDayOff?: boolean
   logId?: string | null
-  completedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1059,7 +1030,6 @@ export type PlannedWorkoutCreateWithoutLogInput = {
   targetPower?: number | null
   sortOrder?: number
   isDayOff?: boolean
-  completedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   plan: Prisma.PlanCreateNestedOneWithoutPlannedWorkoutsInput
@@ -1082,7 +1052,6 @@ export type PlannedWorkoutUncheckedCreateWithoutLogInput = {
   targetPower?: number | null
   sortOrder?: number
   isDayOff?: boolean
-  completedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   logs?: Prisma.WorkoutLogUncheckedCreateNestedManyWithoutPlannedWorkoutInput
@@ -1117,7 +1086,6 @@ export type PlannedWorkoutUpdateWithoutLogsInput = {
   targetPower?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   isDayOff?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   plan?: Prisma.PlanUpdateOneRequiredWithoutPlannedWorkoutsNestedInput
@@ -1141,7 +1109,6 @@ export type PlannedWorkoutUncheckedUpdateWithoutLogsInput = {
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   isDayOff?: Prisma.BoolFieldUpdateOperationsInput | boolean
   logId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1170,7 +1137,6 @@ export type PlannedWorkoutUpdateWithoutLogInput = {
   targetPower?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   isDayOff?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   plan?: Prisma.PlanUpdateOneRequiredWithoutPlannedWorkoutsNestedInput
@@ -1193,7 +1159,6 @@ export type PlannedWorkoutUncheckedUpdateWithoutLogInput = {
   targetPower?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   isDayOff?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   logs?: Prisma.WorkoutLogUncheckedUpdateManyWithoutPlannedWorkoutNestedInput
@@ -1214,7 +1179,6 @@ export type PlannedWorkoutCreateManyUserInput = {
   sortOrder?: number
   isDayOff?: boolean
   logId?: string | null
-  completedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1232,7 +1196,6 @@ export type PlannedWorkoutUpdateWithoutUserInput = {
   targetPower?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   isDayOff?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   plan?: Prisma.PlanUpdateOneRequiredWithoutPlannedWorkoutsNestedInput
@@ -1255,7 +1218,6 @@ export type PlannedWorkoutUncheckedUpdateWithoutUserInput = {
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   isDayOff?: Prisma.BoolFieldUpdateOperationsInput | boolean
   logId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   logs?: Prisma.WorkoutLogUncheckedUpdateManyWithoutPlannedWorkoutNestedInput
@@ -1276,7 +1238,6 @@ export type PlannedWorkoutUncheckedUpdateManyWithoutUserInput = {
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   isDayOff?: Prisma.BoolFieldUpdateOperationsInput | boolean
   logId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1296,7 +1257,6 @@ export type PlannedWorkoutCreateManyPlanInput = {
   sortOrder?: number
   isDayOff?: boolean
   logId?: string | null
-  completedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1314,7 +1274,6 @@ export type PlannedWorkoutUpdateWithoutPlanInput = {
   targetPower?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   isDayOff?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutPlannedWorkoutsNestedInput
@@ -1337,7 +1296,6 @@ export type PlannedWorkoutUncheckedUpdateWithoutPlanInput = {
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   isDayOff?: Prisma.BoolFieldUpdateOperationsInput | boolean
   logId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   logs?: Prisma.WorkoutLogUncheckedUpdateManyWithoutPlannedWorkoutNestedInput
@@ -1358,7 +1316,6 @@ export type PlannedWorkoutUncheckedUpdateManyWithoutPlanInput = {
   sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   isDayOff?: Prisma.BoolFieldUpdateOperationsInput | boolean
   logId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1410,7 +1367,6 @@ export type PlannedWorkoutSelect<ExtArgs extends runtime.Types.Extensions.Intern
   sortOrder?: boolean
   isDayOff?: boolean
   logId?: boolean
-  completedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   plan?: boolean | Prisma.PlanDefaultArgs<ExtArgs>
@@ -1436,7 +1392,6 @@ export type PlannedWorkoutSelectCreateManyAndReturn<ExtArgs extends runtime.Type
   sortOrder?: boolean
   isDayOff?: boolean
   logId?: boolean
-  completedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   plan?: boolean | Prisma.PlanDefaultArgs<ExtArgs>
@@ -1460,7 +1415,6 @@ export type PlannedWorkoutSelectUpdateManyAndReturn<ExtArgs extends runtime.Type
   sortOrder?: boolean
   isDayOff?: boolean
   logId?: boolean
-  completedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   plan?: boolean | Prisma.PlanDefaultArgs<ExtArgs>
@@ -1484,12 +1438,11 @@ export type PlannedWorkoutSelectScalar = {
   sortOrder?: boolean
   isDayOff?: boolean
   logId?: boolean
-  completedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type PlannedWorkoutOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "planId" | "userId" | "scheduledDate" | "type" | "goal" | "title" | "description" | "targetDuration" | "targetDistance" | "targetPace" | "targetPower" | "sortOrder" | "isDayOff" | "logId" | "completedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["plannedWorkout"]>
+export type PlannedWorkoutOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "planId" | "userId" | "scheduledDate" | "type" | "goal" | "title" | "description" | "targetDuration" | "targetDistance" | "targetPace" | "targetPower" | "sortOrder" | "isDayOff" | "logId" | "createdAt" | "updatedAt", ExtArgs["result"]["plannedWorkout"]>
 export type PlannedWorkoutInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   plan?: boolean | Prisma.PlanDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1532,7 +1485,6 @@ export type $PlannedWorkoutPayload<ExtArgs extends runtime.Types.Extensions.Inte
     sortOrder: number
     isDayOff: boolean
     logId: string | null
-    completedAt: Date | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["plannedWorkout"]>
@@ -1977,7 +1929,6 @@ export interface PlannedWorkoutFieldRefs {
   readonly sortOrder: Prisma.FieldRef<"PlannedWorkout", 'Int'>
   readonly isDayOff: Prisma.FieldRef<"PlannedWorkout", 'Boolean'>
   readonly logId: Prisma.FieldRef<"PlannedWorkout", 'String'>
-  readonly completedAt: Prisma.FieldRef<"PlannedWorkout", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"PlannedWorkout", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"PlannedWorkout", 'DateTime'>
 }

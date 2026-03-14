@@ -131,7 +131,6 @@ export const PlannedWorkoutScalarFieldEnum = {
   sortOrder: 'sortOrder',
   isDayOff: 'isDayOff',
   logId: 'logId',
-  completedAt: 'completedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -148,7 +147,6 @@ export const WorkoutLogScalarFieldEnum = {
   title: 'title',
   notes: 'notes',
   startedAt: 'startedAt',
-  endedAt: 'endedAt',
   duration: 'duration',
   distance: 'distance',
   avgPace: 'avgPace',
@@ -157,8 +155,6 @@ export const WorkoutLogScalarFieldEnum = {
   maxHeartRate: 'maxHeartRate',
   calories: 'calories',
   perceivedEffort: 'perceivedEffort',
-  intensityZone: 'intensityZone',
-  feelRating: 'feelRating',
   externalSource: 'externalSource',
   externalId: 'externalId',
   createdAt: 'createdAt',
@@ -178,7 +174,6 @@ export const WorkoutSetScalarFieldEnum = {
   pace: 'pace',
   power: 'power',
   heartRate: 'heartRate',
-  zone: 'zone',
   isRest: 'isRest',
   createdAt: 'createdAt'
 } as const

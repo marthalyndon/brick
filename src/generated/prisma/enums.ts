@@ -74,14 +74,3 @@ export const PlanMode = {
 } as const
 
 export type PlanMode = (typeof PlanMode)[keyof typeof PlanMode]
-
-
-export const IntensityZone = {
-  Z1_RECOVERY: 'Z1_RECOVERY',
-  Z2_ENDURANCE: 'Z2_ENDURANCE',
-  Z3_TEMPO: 'Z3_TEMPO',
-  Z4_THRESHOLD: 'Z4_THRESHOLD',
-  Z5_MAX: 'Z5_MAX'
-} as const
-
-export type IntensityZone = (typeof IntensityZone)[keyof typeof IntensityZone]

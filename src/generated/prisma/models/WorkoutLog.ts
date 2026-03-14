@@ -35,7 +35,6 @@ export type WorkoutLogAvgAggregateOutputType = {
   maxHeartRate: number | null
   calories: number | null
   perceivedEffort: number | null
-  feelRating: number | null
 }
 
 export type WorkoutLogSumAggregateOutputType = {
@@ -47,7 +46,6 @@ export type WorkoutLogSumAggregateOutputType = {
   maxHeartRate: number | null
   calories: number | null
   perceivedEffort: number | null
-  feelRating: number | null
 }
 
 export type WorkoutLogMinAggregateOutputType = {
@@ -59,7 +57,6 @@ export type WorkoutLogMinAggregateOutputType = {
   title: string | null
   notes: string | null
   startedAt: Date | null
-  endedAt: Date | null
   duration: number | null
   distance: number | null
   avgPace: number | null
@@ -68,8 +65,6 @@ export type WorkoutLogMinAggregateOutputType = {
   maxHeartRate: number | null
   calories: number | null
   perceivedEffort: number | null
-  intensityZone: $Enums.IntensityZone | null
-  feelRating: number | null
   externalSource: string | null
   externalId: string | null
   createdAt: Date | null
@@ -85,7 +80,6 @@ export type WorkoutLogMaxAggregateOutputType = {
   title: string | null
   notes: string | null
   startedAt: Date | null
-  endedAt: Date | null
   duration: number | null
   distance: number | null
   avgPace: number | null
@@ -94,8 +88,6 @@ export type WorkoutLogMaxAggregateOutputType = {
   maxHeartRate: number | null
   calories: number | null
   perceivedEffort: number | null
-  intensityZone: $Enums.IntensityZone | null
-  feelRating: number | null
   externalSource: string | null
   externalId: string | null
   createdAt: Date | null
@@ -111,7 +103,6 @@ export type WorkoutLogCountAggregateOutputType = {
   title: number
   notes: number
   startedAt: number
-  endedAt: number
   duration: number
   distance: number
   avgPace: number
@@ -120,8 +111,6 @@ export type WorkoutLogCountAggregateOutputType = {
   maxHeartRate: number
   calories: number
   perceivedEffort: number
-  intensityZone: number
-  feelRating: number
   externalSource: number
   externalId: number
   createdAt: number
@@ -139,7 +128,6 @@ export type WorkoutLogAvgAggregateInputType = {
   maxHeartRate?: true
   calories?: true
   perceivedEffort?: true
-  feelRating?: true
 }
 
 export type WorkoutLogSumAggregateInputType = {
@@ -151,7 +139,6 @@ export type WorkoutLogSumAggregateInputType = {
   maxHeartRate?: true
   calories?: true
   perceivedEffort?: true
-  feelRating?: true
 }
 
 export type WorkoutLogMinAggregateInputType = {
@@ -163,7 +150,6 @@ export type WorkoutLogMinAggregateInputType = {
   title?: true
   notes?: true
   startedAt?: true
-  endedAt?: true
   duration?: true
   distance?: true
   avgPace?: true
@@ -172,8 +158,6 @@ export type WorkoutLogMinAggregateInputType = {
   maxHeartRate?: true
   calories?: true
   perceivedEffort?: true
-  intensityZone?: true
-  feelRating?: true
   externalSource?: true
   externalId?: true
   createdAt?: true
@@ -189,7 +173,6 @@ export type WorkoutLogMaxAggregateInputType = {
   title?: true
   notes?: true
   startedAt?: true
-  endedAt?: true
   duration?: true
   distance?: true
   avgPace?: true
@@ -198,8 +181,6 @@ export type WorkoutLogMaxAggregateInputType = {
   maxHeartRate?: true
   calories?: true
   perceivedEffort?: true
-  intensityZone?: true
-  feelRating?: true
   externalSource?: true
   externalId?: true
   createdAt?: true
@@ -215,7 +196,6 @@ export type WorkoutLogCountAggregateInputType = {
   title?: true
   notes?: true
   startedAt?: true
-  endedAt?: true
   duration?: true
   distance?: true
   avgPace?: true
@@ -224,8 +204,6 @@ export type WorkoutLogCountAggregateInputType = {
   maxHeartRate?: true
   calories?: true
   perceivedEffort?: true
-  intensityZone?: true
-  feelRating?: true
   externalSource?: true
   externalId?: true
   createdAt?: true
@@ -328,7 +306,6 @@ export type WorkoutLogGroupByOutputType = {
   title: string
   notes: string | null
   startedAt: Date
-  endedAt: Date | null
   duration: number | null
   distance: number | null
   avgPace: number | null
@@ -337,8 +314,6 @@ export type WorkoutLogGroupByOutputType = {
   maxHeartRate: number | null
   calories: number | null
   perceivedEffort: number | null
-  intensityZone: $Enums.IntensityZone | null
-  feelRating: number | null
   externalSource: string | null
   externalId: string | null
   createdAt: Date
@@ -377,7 +352,6 @@ export type WorkoutLogWhereInput = {
   title?: Prisma.StringFilter<"WorkoutLog"> | string
   notes?: Prisma.StringNullableFilter<"WorkoutLog"> | string | null
   startedAt?: Prisma.DateTimeFilter<"WorkoutLog"> | Date | string
-  endedAt?: Prisma.DateTimeNullableFilter<"WorkoutLog"> | Date | string | null
   duration?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
   distance?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
   avgPace?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
@@ -386,8 +360,6 @@ export type WorkoutLogWhereInput = {
   maxHeartRate?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
   calories?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
   perceivedEffort?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
-  intensityZone?: Prisma.EnumIntensityZoneNullableFilter<"WorkoutLog"> | $Enums.IntensityZone | null
-  feelRating?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
   externalSource?: Prisma.StringNullableFilter<"WorkoutLog"> | string | null
   externalId?: Prisma.StringNullableFilter<"WorkoutLog"> | string | null
   createdAt?: Prisma.DateTimeFilter<"WorkoutLog"> | Date | string
@@ -407,7 +379,6 @@ export type WorkoutLogOrderByWithRelationInput = {
   title?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   startedAt?: Prisma.SortOrder
-  endedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   duration?: Prisma.SortOrderInput | Prisma.SortOrder
   distance?: Prisma.SortOrderInput | Prisma.SortOrder
   avgPace?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -416,8 +387,6 @@ export type WorkoutLogOrderByWithRelationInput = {
   maxHeartRate?: Prisma.SortOrderInput | Prisma.SortOrder
   calories?: Prisma.SortOrderInput | Prisma.SortOrder
   perceivedEffort?: Prisma.SortOrderInput | Prisma.SortOrder
-  intensityZone?: Prisma.SortOrderInput | Prisma.SortOrder
-  feelRating?: Prisma.SortOrderInput | Prisma.SortOrder
   externalSource?: Prisma.SortOrderInput | Prisma.SortOrder
   externalId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -440,7 +409,6 @@ export type WorkoutLogWhereUniqueInput = Prisma.AtLeast<{
   title?: Prisma.StringFilter<"WorkoutLog"> | string
   notes?: Prisma.StringNullableFilter<"WorkoutLog"> | string | null
   startedAt?: Prisma.DateTimeFilter<"WorkoutLog"> | Date | string
-  endedAt?: Prisma.DateTimeNullableFilter<"WorkoutLog"> | Date | string | null
   duration?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
   distance?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
   avgPace?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
@@ -449,8 +417,6 @@ export type WorkoutLogWhereUniqueInput = Prisma.AtLeast<{
   maxHeartRate?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
   calories?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
   perceivedEffort?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
-  intensityZone?: Prisma.EnumIntensityZoneNullableFilter<"WorkoutLog"> | $Enums.IntensityZone | null
-  feelRating?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
   externalSource?: Prisma.StringNullableFilter<"WorkoutLog"> | string | null
   externalId?: Prisma.StringNullableFilter<"WorkoutLog"> | string | null
   createdAt?: Prisma.DateTimeFilter<"WorkoutLog"> | Date | string
@@ -470,7 +436,6 @@ export type WorkoutLogOrderByWithAggregationInput = {
   title?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   startedAt?: Prisma.SortOrder
-  endedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   duration?: Prisma.SortOrderInput | Prisma.SortOrder
   distance?: Prisma.SortOrderInput | Prisma.SortOrder
   avgPace?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -479,8 +444,6 @@ export type WorkoutLogOrderByWithAggregationInput = {
   maxHeartRate?: Prisma.SortOrderInput | Prisma.SortOrder
   calories?: Prisma.SortOrderInput | Prisma.SortOrder
   perceivedEffort?: Prisma.SortOrderInput | Prisma.SortOrder
-  intensityZone?: Prisma.SortOrderInput | Prisma.SortOrder
-  feelRating?: Prisma.SortOrderInput | Prisma.SortOrder
   externalSource?: Prisma.SortOrderInput | Prisma.SortOrder
   externalId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -504,7 +467,6 @@ export type WorkoutLogScalarWhereWithAggregatesInput = {
   title?: Prisma.StringWithAggregatesFilter<"WorkoutLog"> | string
   notes?: Prisma.StringNullableWithAggregatesFilter<"WorkoutLog"> | string | null
   startedAt?: Prisma.DateTimeWithAggregatesFilter<"WorkoutLog"> | Date | string
-  endedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"WorkoutLog"> | Date | string | null
   duration?: Prisma.IntNullableWithAggregatesFilter<"WorkoutLog"> | number | null
   distance?: Prisma.IntNullableWithAggregatesFilter<"WorkoutLog"> | number | null
   avgPace?: Prisma.IntNullableWithAggregatesFilter<"WorkoutLog"> | number | null
@@ -513,8 +475,6 @@ export type WorkoutLogScalarWhereWithAggregatesInput = {
   maxHeartRate?: Prisma.IntNullableWithAggregatesFilter<"WorkoutLog"> | number | null
   calories?: Prisma.IntNullableWithAggregatesFilter<"WorkoutLog"> | number | null
   perceivedEffort?: Prisma.IntNullableWithAggregatesFilter<"WorkoutLog"> | number | null
-  intensityZone?: Prisma.EnumIntensityZoneNullableWithAggregatesFilter<"WorkoutLog"> | $Enums.IntensityZone | null
-  feelRating?: Prisma.IntNullableWithAggregatesFilter<"WorkoutLog"> | number | null
   externalSource?: Prisma.StringNullableWithAggregatesFilter<"WorkoutLog"> | string | null
   externalId?: Prisma.StringNullableWithAggregatesFilter<"WorkoutLog"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"WorkoutLog"> | Date | string
@@ -528,7 +488,6 @@ export type WorkoutLogCreateInput = {
   title: string
   notes?: string | null
   startedAt: Date | string
-  endedAt?: Date | string | null
   duration?: number | null
   distance?: number | null
   avgPace?: number | null
@@ -537,8 +496,6 @@ export type WorkoutLogCreateInput = {
   maxHeartRate?: number | null
   calories?: number | null
   perceivedEffort?: number | null
-  intensityZone?: $Enums.IntensityZone | null
-  feelRating?: number | null
   externalSource?: string | null
   externalId?: string | null
   createdAt?: Date | string
@@ -558,7 +515,6 @@ export type WorkoutLogUncheckedCreateInput = {
   title: string
   notes?: string | null
   startedAt: Date | string
-  endedAt?: Date | string | null
   duration?: number | null
   distance?: number | null
   avgPace?: number | null
@@ -567,8 +523,6 @@ export type WorkoutLogUncheckedCreateInput = {
   maxHeartRate?: number | null
   calories?: number | null
   perceivedEffort?: number | null
-  intensityZone?: $Enums.IntensityZone | null
-  feelRating?: number | null
   externalSource?: string | null
   externalId?: string | null
   createdAt?: Date | string
@@ -584,7 +538,6 @@ export type WorkoutLogUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avgPace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -593,8 +546,6 @@ export type WorkoutLogUpdateInput = {
   maxHeartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   calories?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   perceivedEffort?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  intensityZone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
-  feelRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   externalSource?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -614,7 +565,6 @@ export type WorkoutLogUncheckedUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avgPace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -623,8 +573,6 @@ export type WorkoutLogUncheckedUpdateInput = {
   maxHeartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   calories?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   perceivedEffort?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  intensityZone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
-  feelRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   externalSource?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -642,7 +590,6 @@ export type WorkoutLogCreateManyInput = {
   title: string
   notes?: string | null
   startedAt: Date | string
-  endedAt?: Date | string | null
   duration?: number | null
   distance?: number | null
   avgPace?: number | null
@@ -651,8 +598,6 @@ export type WorkoutLogCreateManyInput = {
   maxHeartRate?: number | null
   calories?: number | null
   perceivedEffort?: number | null
-  intensityZone?: $Enums.IntensityZone | null
-  feelRating?: number | null
   externalSource?: string | null
   externalId?: string | null
   createdAt?: Date | string
@@ -666,7 +611,6 @@ export type WorkoutLogUpdateManyMutationInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avgPace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -675,8 +619,6 @@ export type WorkoutLogUpdateManyMutationInput = {
   maxHeartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   calories?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   perceivedEffort?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  intensityZone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
-  feelRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   externalSource?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -692,7 +634,6 @@ export type WorkoutLogUncheckedUpdateManyInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avgPace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -701,8 +642,6 @@ export type WorkoutLogUncheckedUpdateManyInput = {
   maxHeartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   calories?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   perceivedEffort?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  intensityZone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
-  feelRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   externalSource?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -733,7 +672,6 @@ export type WorkoutLogCountOrderByAggregateInput = {
   title?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   startedAt?: Prisma.SortOrder
-  endedAt?: Prisma.SortOrder
   duration?: Prisma.SortOrder
   distance?: Prisma.SortOrder
   avgPace?: Prisma.SortOrder
@@ -742,8 +680,6 @@ export type WorkoutLogCountOrderByAggregateInput = {
   maxHeartRate?: Prisma.SortOrder
   calories?: Prisma.SortOrder
   perceivedEffort?: Prisma.SortOrder
-  intensityZone?: Prisma.SortOrder
-  feelRating?: Prisma.SortOrder
   externalSource?: Prisma.SortOrder
   externalId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -759,7 +695,6 @@ export type WorkoutLogAvgOrderByAggregateInput = {
   maxHeartRate?: Prisma.SortOrder
   calories?: Prisma.SortOrder
   perceivedEffort?: Prisma.SortOrder
-  feelRating?: Prisma.SortOrder
 }
 
 export type WorkoutLogMaxOrderByAggregateInput = {
@@ -771,7 +706,6 @@ export type WorkoutLogMaxOrderByAggregateInput = {
   title?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   startedAt?: Prisma.SortOrder
-  endedAt?: Prisma.SortOrder
   duration?: Prisma.SortOrder
   distance?: Prisma.SortOrder
   avgPace?: Prisma.SortOrder
@@ -780,8 +714,6 @@ export type WorkoutLogMaxOrderByAggregateInput = {
   maxHeartRate?: Prisma.SortOrder
   calories?: Prisma.SortOrder
   perceivedEffort?: Prisma.SortOrder
-  intensityZone?: Prisma.SortOrder
-  feelRating?: Prisma.SortOrder
   externalSource?: Prisma.SortOrder
   externalId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -797,7 +729,6 @@ export type WorkoutLogMinOrderByAggregateInput = {
   title?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   startedAt?: Prisma.SortOrder
-  endedAt?: Prisma.SortOrder
   duration?: Prisma.SortOrder
   distance?: Prisma.SortOrder
   avgPace?: Prisma.SortOrder
@@ -806,8 +737,6 @@ export type WorkoutLogMinOrderByAggregateInput = {
   maxHeartRate?: Prisma.SortOrder
   calories?: Prisma.SortOrder
   perceivedEffort?: Prisma.SortOrder
-  intensityZone?: Prisma.SortOrder
-  feelRating?: Prisma.SortOrder
   externalSource?: Prisma.SortOrder
   externalId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -823,7 +752,6 @@ export type WorkoutLogSumOrderByAggregateInput = {
   maxHeartRate?: Prisma.SortOrder
   calories?: Prisma.SortOrder
   perceivedEffort?: Prisma.SortOrder
-  feelRating?: Prisma.SortOrder
 }
 
 export type WorkoutLogScalarRelationFilter = {
@@ -931,10 +859,6 @@ export type WorkoutLogUncheckedUpdateManyWithoutPlannedWorkoutNestedInput = {
   deleteMany?: Prisma.WorkoutLogScalarWhereInput | Prisma.WorkoutLogScalarWhereInput[]
 }
 
-export type NullableEnumIntensityZoneFieldUpdateOperationsInput = {
-  set?: $Enums.IntensityZone | null
-}
-
 export type WorkoutLogCreateNestedOneWithoutSetsInput = {
   create?: Prisma.XOR<Prisma.WorkoutLogCreateWithoutSetsInput, Prisma.WorkoutLogUncheckedCreateWithoutSetsInput>
   connectOrCreate?: Prisma.WorkoutLogCreateOrConnectWithoutSetsInput
@@ -956,7 +880,6 @@ export type WorkoutLogCreateWithoutUserInput = {
   title: string
   notes?: string | null
   startedAt: Date | string
-  endedAt?: Date | string | null
   duration?: number | null
   distance?: number | null
   avgPace?: number | null
@@ -965,8 +888,6 @@ export type WorkoutLogCreateWithoutUserInput = {
   maxHeartRate?: number | null
   calories?: number | null
   perceivedEffort?: number | null
-  intensityZone?: $Enums.IntensityZone | null
-  feelRating?: number | null
   externalSource?: string | null
   externalId?: string | null
   createdAt?: Date | string
@@ -984,7 +905,6 @@ export type WorkoutLogUncheckedCreateWithoutUserInput = {
   title: string
   notes?: string | null
   startedAt: Date | string
-  endedAt?: Date | string | null
   duration?: number | null
   distance?: number | null
   avgPace?: number | null
@@ -993,8 +913,6 @@ export type WorkoutLogUncheckedCreateWithoutUserInput = {
   maxHeartRate?: number | null
   calories?: number | null
   perceivedEffort?: number | null
-  intensityZone?: $Enums.IntensityZone | null
-  feelRating?: number | null
   externalSource?: string | null
   externalId?: string | null
   createdAt?: Date | string
@@ -1041,7 +959,6 @@ export type WorkoutLogScalarWhereInput = {
   title?: Prisma.StringFilter<"WorkoutLog"> | string
   notes?: Prisma.StringNullableFilter<"WorkoutLog"> | string | null
   startedAt?: Prisma.DateTimeFilter<"WorkoutLog"> | Date | string
-  endedAt?: Prisma.DateTimeNullableFilter<"WorkoutLog"> | Date | string | null
   duration?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
   distance?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
   avgPace?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
@@ -1050,8 +967,6 @@ export type WorkoutLogScalarWhereInput = {
   maxHeartRate?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
   calories?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
   perceivedEffort?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
-  intensityZone?: Prisma.EnumIntensityZoneNullableFilter<"WorkoutLog"> | $Enums.IntensityZone | null
-  feelRating?: Prisma.IntNullableFilter<"WorkoutLog"> | number | null
   externalSource?: Prisma.StringNullableFilter<"WorkoutLog"> | string | null
   externalId?: Prisma.StringNullableFilter<"WorkoutLog"> | string | null
   createdAt?: Prisma.DateTimeFilter<"WorkoutLog"> | Date | string
@@ -1065,7 +980,6 @@ export type WorkoutLogCreateWithoutOfficialForInput = {
   title: string
   notes?: string | null
   startedAt: Date | string
-  endedAt?: Date | string | null
   duration?: number | null
   distance?: number | null
   avgPace?: number | null
@@ -1074,8 +988,6 @@ export type WorkoutLogCreateWithoutOfficialForInput = {
   maxHeartRate?: number | null
   calories?: number | null
   perceivedEffort?: number | null
-  intensityZone?: $Enums.IntensityZone | null
-  feelRating?: number | null
   externalSource?: string | null
   externalId?: string | null
   createdAt?: Date | string
@@ -1094,7 +1006,6 @@ export type WorkoutLogUncheckedCreateWithoutOfficialForInput = {
   title: string
   notes?: string | null
   startedAt: Date | string
-  endedAt?: Date | string | null
   duration?: number | null
   distance?: number | null
   avgPace?: number | null
@@ -1103,8 +1014,6 @@ export type WorkoutLogUncheckedCreateWithoutOfficialForInput = {
   maxHeartRate?: number | null
   calories?: number | null
   perceivedEffort?: number | null
-  intensityZone?: $Enums.IntensityZone | null
-  feelRating?: number | null
   externalSource?: string | null
   externalId?: string | null
   createdAt?: Date | string
@@ -1124,7 +1033,6 @@ export type WorkoutLogCreateWithoutPlannedWorkoutInput = {
   title: string
   notes?: string | null
   startedAt: Date | string
-  endedAt?: Date | string | null
   duration?: number | null
   distance?: number | null
   avgPace?: number | null
@@ -1133,8 +1041,6 @@ export type WorkoutLogCreateWithoutPlannedWorkoutInput = {
   maxHeartRate?: number | null
   calories?: number | null
   perceivedEffort?: number | null
-  intensityZone?: $Enums.IntensityZone | null
-  feelRating?: number | null
   externalSource?: string | null
   externalId?: string | null
   createdAt?: Date | string
@@ -1152,7 +1058,6 @@ export type WorkoutLogUncheckedCreateWithoutPlannedWorkoutInput = {
   title: string
   notes?: string | null
   startedAt: Date | string
-  endedAt?: Date | string | null
   duration?: number | null
   distance?: number | null
   avgPace?: number | null
@@ -1161,8 +1066,6 @@ export type WorkoutLogUncheckedCreateWithoutPlannedWorkoutInput = {
   maxHeartRate?: number | null
   calories?: number | null
   perceivedEffort?: number | null
-  intensityZone?: $Enums.IntensityZone | null
-  feelRating?: number | null
   externalSource?: string | null
   externalId?: string | null
   createdAt?: Date | string
@@ -1199,7 +1102,6 @@ export type WorkoutLogUpdateWithoutOfficialForInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avgPace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1208,8 +1110,6 @@ export type WorkoutLogUpdateWithoutOfficialForInput = {
   maxHeartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   calories?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   perceivedEffort?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  intensityZone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
-  feelRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   externalSource?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1228,7 +1128,6 @@ export type WorkoutLogUncheckedUpdateWithoutOfficialForInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avgPace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1237,8 +1136,6 @@ export type WorkoutLogUncheckedUpdateWithoutOfficialForInput = {
   maxHeartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   calories?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   perceivedEffort?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  intensityZone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
-  feelRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   externalSource?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1269,7 +1166,6 @@ export type WorkoutLogCreateWithoutSetsInput = {
   title: string
   notes?: string | null
   startedAt: Date | string
-  endedAt?: Date | string | null
   duration?: number | null
   distance?: number | null
   avgPace?: number | null
@@ -1278,8 +1174,6 @@ export type WorkoutLogCreateWithoutSetsInput = {
   maxHeartRate?: number | null
   calories?: number | null
   perceivedEffort?: number | null
-  intensityZone?: $Enums.IntensityZone | null
-  feelRating?: number | null
   externalSource?: string | null
   externalId?: string | null
   createdAt?: Date | string
@@ -1298,7 +1192,6 @@ export type WorkoutLogUncheckedCreateWithoutSetsInput = {
   title: string
   notes?: string | null
   startedAt: Date | string
-  endedAt?: Date | string | null
   duration?: number | null
   distance?: number | null
   avgPace?: number | null
@@ -1307,8 +1200,6 @@ export type WorkoutLogUncheckedCreateWithoutSetsInput = {
   maxHeartRate?: number | null
   calories?: number | null
   perceivedEffort?: number | null
-  intensityZone?: $Enums.IntensityZone | null
-  feelRating?: number | null
   externalSource?: string | null
   externalId?: string | null
   createdAt?: Date | string
@@ -1339,7 +1230,6 @@ export type WorkoutLogUpdateWithoutSetsInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avgPace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1348,8 +1238,6 @@ export type WorkoutLogUpdateWithoutSetsInput = {
   maxHeartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   calories?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   perceivedEffort?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  intensityZone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
-  feelRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   externalSource?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1368,7 +1256,6 @@ export type WorkoutLogUncheckedUpdateWithoutSetsInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avgPace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1377,8 +1264,6 @@ export type WorkoutLogUncheckedUpdateWithoutSetsInput = {
   maxHeartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   calories?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   perceivedEffort?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  intensityZone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
-  feelRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   externalSource?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1394,7 +1279,6 @@ export type WorkoutLogCreateManyUserInput = {
   title: string
   notes?: string | null
   startedAt: Date | string
-  endedAt?: Date | string | null
   duration?: number | null
   distance?: number | null
   avgPace?: number | null
@@ -1403,8 +1287,6 @@ export type WorkoutLogCreateManyUserInput = {
   maxHeartRate?: number | null
   calories?: number | null
   perceivedEffort?: number | null
-  intensityZone?: $Enums.IntensityZone | null
-  feelRating?: number | null
   externalSource?: string | null
   externalId?: string | null
   createdAt?: Date | string
@@ -1418,7 +1300,6 @@ export type WorkoutLogUpdateWithoutUserInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avgPace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1427,8 +1308,6 @@ export type WorkoutLogUpdateWithoutUserInput = {
   maxHeartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   calories?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   perceivedEffort?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  intensityZone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
-  feelRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   externalSource?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1446,7 +1325,6 @@ export type WorkoutLogUncheckedUpdateWithoutUserInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avgPace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1455,8 +1333,6 @@ export type WorkoutLogUncheckedUpdateWithoutUserInput = {
   maxHeartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   calories?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   perceivedEffort?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  intensityZone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
-  feelRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   externalSource?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1473,7 +1349,6 @@ export type WorkoutLogUncheckedUpdateManyWithoutUserInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avgPace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1482,8 +1357,6 @@ export type WorkoutLogUncheckedUpdateManyWithoutUserInput = {
   maxHeartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   calories?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   perceivedEffort?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  intensityZone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
-  feelRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   externalSource?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1498,7 +1371,6 @@ export type WorkoutLogCreateManyPlannedWorkoutInput = {
   title: string
   notes?: string | null
   startedAt: Date | string
-  endedAt?: Date | string | null
   duration?: number | null
   distance?: number | null
   avgPace?: number | null
@@ -1507,8 +1379,6 @@ export type WorkoutLogCreateManyPlannedWorkoutInput = {
   maxHeartRate?: number | null
   calories?: number | null
   perceivedEffort?: number | null
-  intensityZone?: $Enums.IntensityZone | null
-  feelRating?: number | null
   externalSource?: string | null
   externalId?: string | null
   createdAt?: Date | string
@@ -1522,7 +1392,6 @@ export type WorkoutLogUpdateWithoutPlannedWorkoutInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avgPace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1531,8 +1400,6 @@ export type WorkoutLogUpdateWithoutPlannedWorkoutInput = {
   maxHeartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   calories?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   perceivedEffort?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  intensityZone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
-  feelRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   externalSource?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1550,7 +1417,6 @@ export type WorkoutLogUncheckedUpdateWithoutPlannedWorkoutInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avgPace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1559,8 +1425,6 @@ export type WorkoutLogUncheckedUpdateWithoutPlannedWorkoutInput = {
   maxHeartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   calories?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   perceivedEffort?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  intensityZone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
-  feelRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   externalSource?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1577,7 +1441,6 @@ export type WorkoutLogUncheckedUpdateManyWithoutPlannedWorkoutInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  endedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avgPace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1586,8 +1449,6 @@ export type WorkoutLogUncheckedUpdateManyWithoutPlannedWorkoutInput = {
   maxHeartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   calories?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   perceivedEffort?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  intensityZone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
-  feelRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   externalSource?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1634,7 +1495,6 @@ export type WorkoutLogSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   title?: boolean
   notes?: boolean
   startedAt?: boolean
-  endedAt?: boolean
   duration?: boolean
   distance?: boolean
   avgPace?: boolean
@@ -1643,8 +1503,6 @@ export type WorkoutLogSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   maxHeartRate?: boolean
   calories?: boolean
   perceivedEffort?: boolean
-  intensityZone?: boolean
-  feelRating?: boolean
   externalSource?: boolean
   externalId?: boolean
   createdAt?: boolean
@@ -1665,7 +1523,6 @@ export type WorkoutLogSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   title?: boolean
   notes?: boolean
   startedAt?: boolean
-  endedAt?: boolean
   duration?: boolean
   distance?: boolean
   avgPace?: boolean
@@ -1674,8 +1531,6 @@ export type WorkoutLogSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   maxHeartRate?: boolean
   calories?: boolean
   perceivedEffort?: boolean
-  intensityZone?: boolean
-  feelRating?: boolean
   externalSource?: boolean
   externalId?: boolean
   createdAt?: boolean
@@ -1693,7 +1548,6 @@ export type WorkoutLogSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   title?: boolean
   notes?: boolean
   startedAt?: boolean
-  endedAt?: boolean
   duration?: boolean
   distance?: boolean
   avgPace?: boolean
@@ -1702,8 +1556,6 @@ export type WorkoutLogSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   maxHeartRate?: boolean
   calories?: boolean
   perceivedEffort?: boolean
-  intensityZone?: boolean
-  feelRating?: boolean
   externalSource?: boolean
   externalId?: boolean
   createdAt?: boolean
@@ -1721,7 +1573,6 @@ export type WorkoutLogSelectScalar = {
   title?: boolean
   notes?: boolean
   startedAt?: boolean
-  endedAt?: boolean
   duration?: boolean
   distance?: boolean
   avgPace?: boolean
@@ -1730,15 +1581,13 @@ export type WorkoutLogSelectScalar = {
   maxHeartRate?: boolean
   calories?: boolean
   perceivedEffort?: boolean
-  intensityZone?: boolean
-  feelRating?: boolean
   externalSource?: boolean
   externalId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type WorkoutLogOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "plannedWorkoutId" | "type" | "goal" | "title" | "notes" | "startedAt" | "endedAt" | "duration" | "distance" | "avgPace" | "avgPower" | "avgHeartRate" | "maxHeartRate" | "calories" | "perceivedEffort" | "intensityZone" | "feelRating" | "externalSource" | "externalId" | "createdAt" | "updatedAt", ExtArgs["result"]["workoutLog"]>
+export type WorkoutLogOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "plannedWorkoutId" | "type" | "goal" | "title" | "notes" | "startedAt" | "duration" | "distance" | "avgPace" | "avgPower" | "avgHeartRate" | "maxHeartRate" | "calories" | "perceivedEffort" | "externalSource" | "externalId" | "createdAt" | "updatedAt", ExtArgs["result"]["workoutLog"]>
 export type WorkoutLogInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   sets?: boolean | Prisma.WorkoutLog$setsArgs<ExtArgs>
@@ -1772,7 +1621,6 @@ export type $WorkoutLogPayload<ExtArgs extends runtime.Types.Extensions.Internal
     title: string
     notes: string | null
     startedAt: Date
-    endedAt: Date | null
     duration: number | null
     distance: number | null
     avgPace: number | null
@@ -1781,8 +1629,6 @@ export type $WorkoutLogPayload<ExtArgs extends runtime.Types.Extensions.Internal
     maxHeartRate: number | null
     calories: number | null
     perceivedEffort: number | null
-    intensityZone: $Enums.IntensityZone | null
-    feelRating: number | null
     externalSource: string | null
     externalId: string | null
     createdAt: Date
@@ -2222,7 +2068,6 @@ export interface WorkoutLogFieldRefs {
   readonly title: Prisma.FieldRef<"WorkoutLog", 'String'>
   readonly notes: Prisma.FieldRef<"WorkoutLog", 'String'>
   readonly startedAt: Prisma.FieldRef<"WorkoutLog", 'DateTime'>
-  readonly endedAt: Prisma.FieldRef<"WorkoutLog", 'DateTime'>
   readonly duration: Prisma.FieldRef<"WorkoutLog", 'Int'>
   readonly distance: Prisma.FieldRef<"WorkoutLog", 'Int'>
   readonly avgPace: Prisma.FieldRef<"WorkoutLog", 'Int'>
@@ -2231,8 +2076,6 @@ export interface WorkoutLogFieldRefs {
   readonly maxHeartRate: Prisma.FieldRef<"WorkoutLog", 'Int'>
   readonly calories: Prisma.FieldRef<"WorkoutLog", 'Int'>
   readonly perceivedEffort: Prisma.FieldRef<"WorkoutLog", 'Int'>
-  readonly intensityZone: Prisma.FieldRef<"WorkoutLog", 'IntensityZone'>
-  readonly feelRating: Prisma.FieldRef<"WorkoutLog", 'Int'>
   readonly externalSource: Prisma.FieldRef<"WorkoutLog", 'String'>
   readonly externalId: Prisma.FieldRef<"WorkoutLog", 'String'>
   readonly createdAt: Prisma.FieldRef<"WorkoutLog", 'DateTime'>

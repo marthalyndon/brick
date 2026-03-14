@@ -54,7 +54,6 @@ export type WorkoutSetMinAggregateOutputType = {
   pace: number | null
   power: number | null
   heartRate: number | null
-  zone: $Enums.IntensityZone | null
   isRest: boolean | null
   createdAt: Date | null
 }
@@ -69,7 +68,6 @@ export type WorkoutSetMaxAggregateOutputType = {
   pace: number | null
   power: number | null
   heartRate: number | null
-  zone: $Enums.IntensityZone | null
   isRest: boolean | null
   createdAt: Date | null
 }
@@ -84,7 +82,6 @@ export type WorkoutSetCountAggregateOutputType = {
   pace: number
   power: number
   heartRate: number
-  zone: number
   isRest: number
   createdAt: number
   _all: number
@@ -119,7 +116,6 @@ export type WorkoutSetMinAggregateInputType = {
   pace?: true
   power?: true
   heartRate?: true
-  zone?: true
   isRest?: true
   createdAt?: true
 }
@@ -134,7 +130,6 @@ export type WorkoutSetMaxAggregateInputType = {
   pace?: true
   power?: true
   heartRate?: true
-  zone?: true
   isRest?: true
   createdAt?: true
 }
@@ -149,7 +144,6 @@ export type WorkoutSetCountAggregateInputType = {
   pace?: true
   power?: true
   heartRate?: true
-  zone?: true
   isRest?: true
   createdAt?: true
   _all?: true
@@ -251,7 +245,6 @@ export type WorkoutSetGroupByOutputType = {
   pace: number | null
   power: number | null
   heartRate: number | null
-  zone: $Enums.IntensityZone | null
   isRest: boolean
   createdAt: Date
   _count: WorkoutSetCountAggregateOutputType | null
@@ -289,7 +282,6 @@ export type WorkoutSetWhereInput = {
   pace?: Prisma.IntNullableFilter<"WorkoutSet"> | number | null
   power?: Prisma.IntNullableFilter<"WorkoutSet"> | number | null
   heartRate?: Prisma.IntNullableFilter<"WorkoutSet"> | number | null
-  zone?: Prisma.EnumIntensityZoneNullableFilter<"WorkoutSet"> | $Enums.IntensityZone | null
   isRest?: Prisma.BoolFilter<"WorkoutSet"> | boolean
   createdAt?: Prisma.DateTimeFilter<"WorkoutSet"> | Date | string
   log?: Prisma.XOR<Prisma.WorkoutLogScalarRelationFilter, Prisma.WorkoutLogWhereInput>
@@ -305,7 +297,6 @@ export type WorkoutSetOrderByWithRelationInput = {
   pace?: Prisma.SortOrderInput | Prisma.SortOrder
   power?: Prisma.SortOrderInput | Prisma.SortOrder
   heartRate?: Prisma.SortOrderInput | Prisma.SortOrder
-  zone?: Prisma.SortOrderInput | Prisma.SortOrder
   isRest?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   log?: Prisma.WorkoutLogOrderByWithRelationInput
@@ -324,7 +315,6 @@ export type WorkoutSetWhereUniqueInput = Prisma.AtLeast<{
   pace?: Prisma.IntNullableFilter<"WorkoutSet"> | number | null
   power?: Prisma.IntNullableFilter<"WorkoutSet"> | number | null
   heartRate?: Prisma.IntNullableFilter<"WorkoutSet"> | number | null
-  zone?: Prisma.EnumIntensityZoneNullableFilter<"WorkoutSet"> | $Enums.IntensityZone | null
   isRest?: Prisma.BoolFilter<"WorkoutSet"> | boolean
   createdAt?: Prisma.DateTimeFilter<"WorkoutSet"> | Date | string
   log?: Prisma.XOR<Prisma.WorkoutLogScalarRelationFilter, Prisma.WorkoutLogWhereInput>
@@ -340,7 +330,6 @@ export type WorkoutSetOrderByWithAggregationInput = {
   pace?: Prisma.SortOrderInput | Prisma.SortOrder
   power?: Prisma.SortOrderInput | Prisma.SortOrder
   heartRate?: Prisma.SortOrderInput | Prisma.SortOrder
-  zone?: Prisma.SortOrderInput | Prisma.SortOrder
   isRest?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.WorkoutSetCountOrderByAggregateInput
@@ -363,7 +352,6 @@ export type WorkoutSetScalarWhereWithAggregatesInput = {
   pace?: Prisma.IntNullableWithAggregatesFilter<"WorkoutSet"> | number | null
   power?: Prisma.IntNullableWithAggregatesFilter<"WorkoutSet"> | number | null
   heartRate?: Prisma.IntNullableWithAggregatesFilter<"WorkoutSet"> | number | null
-  zone?: Prisma.EnumIntensityZoneNullableWithAggregatesFilter<"WorkoutSet"> | $Enums.IntensityZone | null
   isRest?: Prisma.BoolWithAggregatesFilter<"WorkoutSet"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"WorkoutSet"> | Date | string
 }
@@ -377,7 +365,6 @@ export type WorkoutSetCreateInput = {
   pace?: number | null
   power?: number | null
   heartRate?: number | null
-  zone?: $Enums.IntensityZone | null
   isRest?: boolean
   createdAt?: Date | string
   log: Prisma.WorkoutLogCreateNestedOneWithoutSetsInput
@@ -393,7 +380,6 @@ export type WorkoutSetUncheckedCreateInput = {
   pace?: number | null
   power?: number | null
   heartRate?: number | null
-  zone?: $Enums.IntensityZone | null
   isRest?: boolean
   createdAt?: Date | string
 }
@@ -407,7 +393,6 @@ export type WorkoutSetUpdateInput = {
   pace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   power?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   heartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  zone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
   isRest?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   log?: Prisma.WorkoutLogUpdateOneRequiredWithoutSetsNestedInput
@@ -423,7 +408,6 @@ export type WorkoutSetUncheckedUpdateInput = {
   pace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   power?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   heartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  zone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
   isRest?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -438,7 +422,6 @@ export type WorkoutSetCreateManyInput = {
   pace?: number | null
   power?: number | null
   heartRate?: number | null
-  zone?: $Enums.IntensityZone | null
   isRest?: boolean
   createdAt?: Date | string
 }
@@ -452,7 +435,6 @@ export type WorkoutSetUpdateManyMutationInput = {
   pace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   power?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   heartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  zone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
   isRest?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -467,7 +449,6 @@ export type WorkoutSetUncheckedUpdateManyInput = {
   pace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   power?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   heartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  zone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
   isRest?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -492,7 +473,6 @@ export type WorkoutSetCountOrderByAggregateInput = {
   pace?: Prisma.SortOrder
   power?: Prisma.SortOrder
   heartRate?: Prisma.SortOrder
-  zone?: Prisma.SortOrder
   isRest?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -516,7 +496,6 @@ export type WorkoutSetMaxOrderByAggregateInput = {
   pace?: Prisma.SortOrder
   power?: Prisma.SortOrder
   heartRate?: Prisma.SortOrder
-  zone?: Prisma.SortOrder
   isRest?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -531,7 +510,6 @@ export type WorkoutSetMinOrderByAggregateInput = {
   pace?: Prisma.SortOrder
   power?: Prisma.SortOrder
   heartRate?: Prisma.SortOrder
-  zone?: Prisma.SortOrder
   isRest?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -596,7 +574,6 @@ export type WorkoutSetCreateWithoutLogInput = {
   pace?: number | null
   power?: number | null
   heartRate?: number | null
-  zone?: $Enums.IntensityZone | null
   isRest?: boolean
   createdAt?: Date | string
 }
@@ -610,7 +587,6 @@ export type WorkoutSetUncheckedCreateWithoutLogInput = {
   pace?: number | null
   power?: number | null
   heartRate?: number | null
-  zone?: $Enums.IntensityZone | null
   isRest?: boolean
   createdAt?: Date | string
 }
@@ -654,7 +630,6 @@ export type WorkoutSetScalarWhereInput = {
   pace?: Prisma.IntNullableFilter<"WorkoutSet"> | number | null
   power?: Prisma.IntNullableFilter<"WorkoutSet"> | number | null
   heartRate?: Prisma.IntNullableFilter<"WorkoutSet"> | number | null
-  zone?: Prisma.EnumIntensityZoneNullableFilter<"WorkoutSet"> | $Enums.IntensityZone | null
   isRest?: Prisma.BoolFilter<"WorkoutSet"> | boolean
   createdAt?: Prisma.DateTimeFilter<"WorkoutSet"> | Date | string
 }
@@ -668,7 +643,6 @@ export type WorkoutSetCreateManyLogInput = {
   pace?: number | null
   power?: number | null
   heartRate?: number | null
-  zone?: $Enums.IntensityZone | null
   isRest?: boolean
   createdAt?: Date | string
 }
@@ -682,7 +656,6 @@ export type WorkoutSetUpdateWithoutLogInput = {
   pace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   power?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   heartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  zone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
   isRest?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -696,7 +669,6 @@ export type WorkoutSetUncheckedUpdateWithoutLogInput = {
   pace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   power?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   heartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  zone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
   isRest?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -710,7 +682,6 @@ export type WorkoutSetUncheckedUpdateManyWithoutLogInput = {
   pace?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   power?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   heartRate?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  zone?: Prisma.NullableEnumIntensityZoneFieldUpdateOperationsInput | $Enums.IntensityZone | null
   isRest?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -727,7 +698,6 @@ export type WorkoutSetSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   pace?: boolean
   power?: boolean
   heartRate?: boolean
-  zone?: boolean
   isRest?: boolean
   createdAt?: boolean
   log?: boolean | Prisma.WorkoutLogDefaultArgs<ExtArgs>
@@ -743,7 +713,6 @@ export type WorkoutSetSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   pace?: boolean
   power?: boolean
   heartRate?: boolean
-  zone?: boolean
   isRest?: boolean
   createdAt?: boolean
   log?: boolean | Prisma.WorkoutLogDefaultArgs<ExtArgs>
@@ -759,7 +728,6 @@ export type WorkoutSetSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   pace?: boolean
   power?: boolean
   heartRate?: boolean
-  zone?: boolean
   isRest?: boolean
   createdAt?: boolean
   log?: boolean | Prisma.WorkoutLogDefaultArgs<ExtArgs>
@@ -775,12 +743,11 @@ export type WorkoutSetSelectScalar = {
   pace?: boolean
   power?: boolean
   heartRate?: boolean
-  zone?: boolean
   isRest?: boolean
   createdAt?: boolean
 }
 
-export type WorkoutSetOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "logId" | "setNumber" | "label" | "distance" | "duration" | "pace" | "power" | "heartRate" | "zone" | "isRest" | "createdAt", ExtArgs["result"]["workoutSet"]>
+export type WorkoutSetOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "logId" | "setNumber" | "label" | "distance" | "duration" | "pace" | "power" | "heartRate" | "isRest" | "createdAt", ExtArgs["result"]["workoutSet"]>
 export type WorkoutSetInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   log?: boolean | Prisma.WorkoutLogDefaultArgs<ExtArgs>
 }
@@ -806,7 +773,6 @@ export type $WorkoutSetPayload<ExtArgs extends runtime.Types.Extensions.Internal
     pace: number | null
     power: number | null
     heartRate: number | null
-    zone: $Enums.IntensityZone | null
     isRest: boolean
     createdAt: Date
   }, ExtArgs["result"]["workoutSet"]>
@@ -1242,7 +1208,6 @@ export interface WorkoutSetFieldRefs {
   readonly pace: Prisma.FieldRef<"WorkoutSet", 'Int'>
   readonly power: Prisma.FieldRef<"WorkoutSet", 'Int'>
   readonly heartRate: Prisma.FieldRef<"WorkoutSet", 'Int'>
-  readonly zone: Prisma.FieldRef<"WorkoutSet", 'IntensityZone'>
   readonly isRest: Prisma.FieldRef<"WorkoutSet", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"WorkoutSet", 'DateTime'>
 }
