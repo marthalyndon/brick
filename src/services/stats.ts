@@ -76,7 +76,7 @@ export async function getPlanVsActual(planId: string): Promise<{
 
   return {
     planned: past.length,
-    completed: past.filter((w) => w.completedAt !== null).length,
-    skipped: past.filter((w) => w.completedAt === null).length,
+    completed: past.filter((w) => w.logId !== null).length,
+    skipped: past.filter((w) => w.logId === null).length,
   };
 }
