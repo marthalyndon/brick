@@ -10,7 +10,7 @@ export async function getNextWorkout(): Promise<PlannedWorkout | null> {
     where: {
       userId: SOLO_USER_ID,
       scheduledDate: { gte: today },
-      completedAt: null,
+      logId: null,
       isDayOff: false,
     },
     orderBy: [{ scheduledDate: "asc" }, { sortOrder: "asc" }],
@@ -57,7 +57,6 @@ export async function completePlannedWorkout(
     where: { id: plannedWorkoutId },
     data: {
       logId: log.id,
-      completedAt: new Date(),
     },
   });
 
