@@ -5,8 +5,8 @@ import type { PlannedWorkout, WorkoutType } from "@/lib/types";
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
-const DAY_LETTERS = ["S", "M", "T", "W", "T", "F", "S"];
-const DAY_NAMES   = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const DAY_LETTERS = ["Su", "M", "T", "W", "Th", "F", "Sa"];
+const DAY_NAMES   = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; // used by dateLabel
 
 function toDateKey(date: Date): string {
   const y = date.getFullYear();
@@ -46,13 +46,13 @@ function buildWeekCells(weekWorkouts: PlannedWorkout[]): WeekCell[] {
     byDay.set(key, arr);
   }
 
-  // Build 7 cells starting from Monday of this week
-  const monday = new Date();
-  monday.setHours(0, 0, 0, 0);
-  monday.setDate(monday.getDate() - ((monday.getDay() + 6) % 7));
+  // Build 7 cells starting from Sunday of this week
+  const sunday = new Date();
+  sunday.setHours(0, 0, 0, 0);
+  sunday.setDate(sunday.getDate() - sunday.getDay()); // getDay() 0=Sun
 
   return Array.from({ length: 7 }, (_, i) => {
-    const d = new Date(monday);
+    const d = new Date(sunday);
     d.setDate(d.getDate() + i);
     const key = toDateKey(d);
     const workouts = byDay.get(key) ?? [];
@@ -77,7 +77,7 @@ function buildWeekCells(weekWorkouts: PlannedWorkout[]): WeekCell[] {
           .map((w) => w.type as WorkoutType);
 
     return {
-      dayLetter: DAY_LETTERS[(monday.getDay() + i) % 7],
+      dayLetter: DAY_LETTERS[d.getDay()], // 0=Su,1=M,...,6=Sa
       status,
       workoutTypes,
     };

@@ -87,12 +87,11 @@ export async function getWorkoutHistory(filters?: {
   });
 }
 
-/** Snaps a date back to the Monday of its week (exported for testing). */
+/** Snaps a date back to the Sunday of its week (exported for testing). */
 export function weekStart(date: Date): Date {
   const d = new Date(date);
   d.setHours(0, 0, 0, 0);
-  const day = d.getDay(); // 0=Sun … 6=Sat
-  d.setDate(d.getDate() - ((day + 6) % 7)); // shift back to Monday
+  d.setDate(d.getDate() - d.getDay()); // getDay() 0=Sun, subtracting gives Sunday
   return d;
 }
 
@@ -120,7 +119,7 @@ export async function getUpcomingWorkouts(
 }
 
 /**
- * Returns all planned workouts for the Mon–Sun week containing `weekOf`.
+ * Returns all planned workouts for the Sun–Sat week containing `weekOf`.
  * Includes logId so the UI can determine completion status.
  */
 export async function getWeekWorkouts(weekOf: Date): Promise<PlannedWorkout[]> {

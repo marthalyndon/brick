@@ -1,6 +1,6 @@
 "use client";
 
-import { Timer, Route, Check } from "lucide-react";
+import { Timer, Route, Check, BedDouble } from "lucide-react";
 import { type WorkoutType, type WorkoutGoal } from "@/generated/prisma/client";
 import { Tag } from "@/components/ui/Tag";
 import { Chip } from "@/components/ui/Chip";
@@ -58,7 +58,48 @@ const goalLabel: Record<WorkoutGoal, string> = {
   FREE:       "Free",
 };
 
-// ── Card ───────────────────────────────────────────────────────────────────
+// ── REST card ──────────────────────────────────────────────────────────────────
+
+function RestCardFull({ className = "" }: { className?: string }) {
+  return (
+    <div
+      className={`
+        bg-core-background rounded-[var(--radius-m)] border-l-4 border-l-core-gray-300
+        shadow-[var(--shadow-card)] p-4
+        flex flex-col items-center justify-center gap-2
+        w-full max-w-sm min-h-[160px]
+        ${className}
+      `.trim()}
+    >
+      <BedDouble className="size-11 text-core-gray-300" />
+      <span className="text-[24px] font-semibold text-core-gray-400 leading-[1.2]">Rest</span>
+    </div>
+  );
+}
+
+function RestCardUpcoming({ dateLabel, className = "" }: { dateLabel?: string; className?: string }) {
+  return (
+    <div
+      className={`
+        bg-core-background rounded-[var(--radius-m)] border-l-4 border-l-core-gray-300
+        shadow-[var(--shadow-card)] px-4 py-3
+        flex items-center gap-2
+        w-full max-w-sm
+        ${className}
+      `.trim()}
+    >
+      <BedDouble className="size-4 text-core-gray-400 shrink-0" />
+      <span className="text-[16px] font-semibold text-core-gray-400 leading-[1.3]">Rest</span>
+      {dateLabel && (
+        <span className="ml-auto text-[10px] font-bold tracking-wide text-core-gray-300 uppercase">
+          {dateLabel}
+        </span>
+      )}
+    </div>
+  );
+}
+
+// ── Main card ──────────────────────────────────────────────────────────────────
 
 export function WorkoutCard({
   version = "plan",
@@ -73,7 +114,17 @@ export function WorkoutCard({
   onComplete,
   onSkip,
 }: WorkoutCardProps) {
-  const borderColor = sportBorderColor[type] ?? "border-l-core-gray-300";
+  if (type === "REST") {
+    return size === "full"
+      ? <RestCardFull className={className} />
+      : <RestCardUpcoming dateLabel={dateLabel} className={className} />;
+  }
+
+  const isSkip     = version === "skip";
+  const isComplete = version === "complete";
+  const borderColor = isSkip
+    ? "border-l-core-gray-400"
+    : (sportBorderColor[type] ?? "border-l-core-gray-300");
 
   return (
     <div
@@ -82,46 +133,44 @@ export function WorkoutCard({
         shadow-[var(--shadow-card)] p-4
         flex flex-col gap-2
         ${size === "upcoming" ? "max-w-sm" : "w-full max-w-sm"}
-        ${version === "complete" ? "opacity-75" : ""}
-        ${version === "skip" ? "opacity-50" : ""}
         ${className}
       `.trim()}
     >
-      {/* Header row: sport tag + goal chip + optional date label */}
+      {/* Header: sport tag + goal chip + optional date label */}
       <div className="flex items-center gap-2">
-        <Tag type={type} icon={<SportIcon type={type} />}>
+        <Tag type={isSkip ? "grey" : type} icon={<SportIcon type={type} />}>
           {type.charAt(0) + type.slice(1).toLowerCase()}
         </Tag>
-        {goal && (
-          <Chip type="grey">{goalLabel[goal]}</Chip>
-        )}
-        {version === "complete" && (
-          <Chip type="accent">Done</Chip>
-        )}
-        {version === "skip" && (
-          <Chip type="grey">Skipped</Chip>
-        )}
+        {goal && <Chip type="grey">{goalLabel[goal]}</Chip>}
         {dateLabel && size === "upcoming" && (
-          <span className="ml-auto text-[11px] font-semibold tracking-wide text-core-gray-400 uppercase">
+          <span className="ml-auto text-[10px] font-bold tracking-wide text-core-gray-300 uppercase">
             {dateLabel}
           </span>
         )}
       </div>
 
       {/* Title */}
-      <p className="text-[24px] font-bold text-core-primary leading-[1.2]">{title}</p>
+      <p
+        className={`
+          leading-[1.2]
+          ${size === "upcoming" ? "text-[16px] font-extrabold" : "text-[24px] font-bold"}
+          ${isSkip ? "text-core-gray-500" : "text-core-primary"}
+        `.trim()}
+      >
+        {title}
+      </p>
 
       {/* Stats */}
-      {type !== "REST" && (targetDuration != null || targetDistance != null) && (
-        <div className="flex items-center gap-2">
+      {(targetDuration != null || targetDistance != null) && (
+        <div className="flex items-center gap-4">
           {targetDuration != null && (
-            <span className="flex items-center gap-1 text-[12px] font-medium text-core-primary">
+            <span className={`flex items-center gap-1 text-[12px] font-medium ${isSkip ? "text-core-gray-500" : "text-core-primary"}`}>
               <Timer className="size-3" />
               {formatDuration(targetDuration)}
             </span>
           )}
           {targetDistance != null && (
-            <span className="flex items-center gap-1 text-[12px] font-medium text-core-primary">
+            <span className={`flex items-center gap-1 text-[12px] font-medium ${isSkip ? "text-core-gray-500" : "text-core-primary"}`}>
               <Route className="size-3" />
               {formatDistance(targetDistance)}
             </span>
@@ -129,24 +178,39 @@ export function WorkoutCard({
         </div>
       )}
 
-      {/* Actions — only on full-size plan cards */}
-      {version === "plan" && size === "full" && (
+      {/* Actions — full cards only */}
+      {size === "full" && (
         <div className="flex items-center gap-2 mt-1">
-          <Button
-            variant="filled"
-            icon={<Check className="size-4" />}
-            iconPosition="left"
-            onClick={onComplete}
-          >
-            Complete
-          </Button>
-          <Button
-            variant="outline"
-            status="plain"
-            onClick={onSkip}
-          >
-            Skip
-          </Button>
+          {version === "plan" && (
+            <>
+              <Button
+                variant="filled"
+                icon={<Check className="size-4" />}
+                iconPosition="left"
+                onClick={onComplete}
+              >
+                Complete
+              </Button>
+              <Button variant="outline" status="plain" onClick={onSkip}>
+                Skip
+              </Button>
+            </>
+          )}
+          {isComplete && (
+            <Button
+              variant="filled"
+              status="plain"
+              icon={<Check className="size-4" />}
+              iconPosition="left"
+            >
+              Completed
+            </Button>
+          )}
+          {isSkip && (
+            <Button variant="outline" status="plain">
+              Skipped
+            </Button>
+          )}
         </div>
       )}
     </div>

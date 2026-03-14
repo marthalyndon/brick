@@ -12,15 +12,15 @@ describe("getWeekWorkouts", () => {
     expect(typeof getWeekWorkouts).toBe("function");
   });
 
-  it("snaps to Monday — passing a Wednesday returns week starting Monday", async () => {
+  it("snaps to Sunday — passing a Wednesday returns week starting Sunday", async () => {
     // Pure logic test — does not hit DB.
     // Use explicit local Date constructor (not ISO string) to avoid UTC/local timezone skew.
     const { weekStart } = await import("../workout");
     const wed = new Date(2026, 2, 11); // March 11, 2026 (month is 0-indexed)
-    const monday = weekStart(wed);
-    expect(monday.getFullYear()).toBe(2026);
-    expect(monday.getMonth()).toBe(2);   // March
-    expect(monday.getDate()).toBe(9);    // 9th
-    expect(monday.getDay()).toBe(1);     // Monday
+    const sun = weekStart(wed);
+    expect(sun.getFullYear()).toBe(2026);
+    expect(sun.getMonth()).toBe(2);   // March
+    expect(sun.getDate()).toBe(8);    // 8th (Sunday before March 11)
+    expect(sun.getDay()).toBe(0);     // Sunday
   });
 });

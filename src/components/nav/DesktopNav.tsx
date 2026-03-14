@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, CalendarDays, Clock, BarChart2 } from "lucide-react";
+import { Home, ClipboardList, History, BarChart2 } from "lucide-react";
 
 const NAV_ITEMS = [
-  { href: "/",        label: "Home",    Icon: Home         },
-  { href: "/plan",    label: "Plan",    Icon: CalendarDays },
-  { href: "/history", label: "History", Icon: Clock        },
-  { href: "/stats",   label: "Stats",   Icon: BarChart2    },
+  { href: "/",        label: "Home",    Icon: Home          },
+  { href: "/plan",    label: "Plan",    Icon: ClipboardList },
+  { href: "/history", label: "History", Icon: History       },
+  { href: "/stats",   label: "Stats",   Icon: BarChart2     },
 ];
 
 export function DesktopNav() {

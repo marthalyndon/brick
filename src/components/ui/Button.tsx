@@ -50,7 +50,7 @@ export function Button({
     <button
       className={`
         inline-flex items-center justify-center gap-1
-        h-10 px-4 rounded-[var(--radius-m)]
+        h-8 px-4 rounded-[var(--radius-m)]
         text-[12px] font-semibold leading-none
         transition-opacity
         ${styles[variant][resolvedStatus]}

@@ -1,7 +1,7 @@
 import {
   Waves,
   Bike,
-  PersonStanding,
+  Wind,
   Dumbbell,
   Layers,
   Moon,
@@ -18,7 +18,7 @@ export function SportIcon({ type, className = "size-4" }: SportIconProps) {
   switch (type) {
     case "SWIM":     return <Waves className={className} />;
     case "BIKE":     return <Bike className={className} />;
-    case "RUN":      return <PersonStanding className={className} />;
+    case "RUN":      return <Wind className={className} />;
     case "STRENGTH": return <Dumbbell className={className} />;
     case "BRICK":    return <Layers className={className} />;
     case "REST":     return <Moon className={className} />;
