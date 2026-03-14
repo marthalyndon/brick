@@ -9,7 +9,10 @@ const DAY_LETTERS = ["S", "M", "T", "W", "T", "F", "S"];
 const DAY_NAMES   = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 function toDateKey(date: Date): string {
-  return date.toISOString().slice(0, 10);
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
 }
 
 function dateLabel(scheduledDate: Date): string {
@@ -56,7 +59,7 @@ function buildWeekCells(weekWorkouts: PlannedWorkout[]): WeekCell[] {
     const isPast = d < new Date(new Date().setHours(0,0,0,0));
     const isToday = key === todayKey;
     const anyCompleted = workouts.some((w) => w.logId !== null);
-    const allDayOff = workouts.every((w) => w.isDayOff);
+    const isDayOff = workouts.length > 0 && workouts.every((w) => w.isDayOff);
 
     let status: DayStatus;
     if (isToday) {
@@ -67,7 +70,7 @@ function buildWeekCells(weekWorkouts: PlannedWorkout[]): WeekCell[] {
       status = "future";
     }
 
-    const workoutTypes = allDayOff
+    const workoutTypes = isDayOff
       ? []
       : workouts
           .filter((w) => !w.isDayOff && w.type !== "REST")
