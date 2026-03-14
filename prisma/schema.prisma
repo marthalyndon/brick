@@ -60,14 +60,6 @@ enum PlanMode {
   HYBRID
 }
 
-enum IntensityZone {
-  Z1_RECOVERY
-  Z2_ENDURANCE
-  Z3_TEMPO
-  Z4_THRESHOLD
-  Z5_MAX
-}
-
 // ─── Models ───────────────────────────────────────────────────────────────────
 
 model User {
@@ -140,7 +132,6 @@ model PlannedWorkout {
   isDayOff       Boolean     @default(false)
 
   logId          String?     @unique
-  completedAt    DateTime?
 
   plan           Plan        @relation(fields: [planId], references: [id])
   user           User        @relation(fields: [userId], references: [id])
@@ -164,7 +155,6 @@ model WorkoutLog {
   notes             String?
 
   startedAt         DateTime
-  endedAt           DateTime?
   duration          Int?          // seconds
   distance          Int?          // meters
   avgPace           Int?          // seconds per km or per 100m
@@ -174,8 +164,6 @@ model WorkoutLog {
   calories          Int?
 
   perceivedEffort   Int?          // 1–10
-  intensityZone     IntensityZone?
-  feelRating        Int?          // 1–5
 
   externalSource    String?       // "garmin" | "strava" | "wahoo" | etc.
   externalId        String?
@@ -201,7 +189,6 @@ model WorkoutSet {
   pace       Int?          // seconds per unit
   power      Int?          // watts
   heartRate  Int?          // bpm
-  zone       IntensityZone?
   isRest     Boolean       @default(false)
 
   log        WorkoutLog    @relation(fields: [logId], references: [id])

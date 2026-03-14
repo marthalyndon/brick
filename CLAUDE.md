@@ -18,7 +18,7 @@
 1. ✅ Data model designed
 2. ✅ Next.js project scaffolded
 3. ✅ Prisma schema file + seed script (solo user)
-4. ⬜ Figma library complete → component library
+4. ✅ Figma library complete → component library
 5. ⬜ MCP tool definitions
 6. ⬜ Auth (NextAuth) — post-MVP
 
@@ -95,7 +95,6 @@ This allows swapping hardcoded periodization rules for AI generation later with 
 | `BreakAdjustmentStrategy` | PUSH_FORWARD, SKIP_DAYS, MANUAL |
 | `ExperienceLevel` | BEGINNER, INTERMEDIATE, ADVANCED, ELITE |
 | `PlanMode` | AUTO, MANUAL, HYBRID |
-| `IntensityZone` | Z1_RECOVERY, Z2_ENDURANCE, Z3_TEMPO, Z4_THRESHOLD, Z5_MAX |
 
 ### Tables
 
@@ -103,12 +102,12 @@ This allows swapping hardcoded periodization rules for AI generation later with 
 
 **Plan** — id, userId, name, mode, startDate, endDate, raceDate, raceName, weeklyGoalHours, notes, currentSwimPace, currentBikeFTP, currentRunPace, goalSwimPace, goalBikeFTP, goalRunPace, archivedAt, createdAt, updatedAt
 
-**PlannedWorkout** — id, planId, userId, scheduledDate, type, goal, title, description, targetDuration, targetDistance, targetPace, targetPower, sortOrder, isDayOff, logId, completedAt, createdAt, updatedAt
+**PlannedWorkout** — id, planId, userId, scheduledDate, type, goal, title, description, targetDuration, targetDistance, targetPace, targetPower, sortOrder, isDayOff, logId, createdAt, updatedAt
 > BRICK workouts = two PlannedWorkouts on same date (BIKE + RUN) with sortOrder 0 and 1
 
-**WorkoutLog** — id, userId, plannedWorkoutId, type, goal, title, notes, startedAt, endedAt, duration, distance, avgPace, avgPower, avgHeartRate, maxHeartRate, calories, perceivedEffort, intensityZone, feelRating, externalSource, externalId, createdAt, updatedAt
+**WorkoutLog** — id, userId, plannedWorkoutId, type, goal, title, notes, startedAt, duration, distance, avgPace, avgPower, avgHeartRate, maxHeartRate, calories, perceivedEffort, externalSource, externalId, createdAt, updatedAt
 
-**WorkoutSet** — id, logId, setNumber, label, distance, duration, pace, power, heartRate, zone, isRest, createdAt
+**WorkoutSet** — id, logId, setNumber, label, distance, duration, pace, power, heartRate, isRest, createdAt
 
 **PlanBreak** — id, planId, userId, startDate, endDate, type, adjustmentStrategy, notes, createdAt, updatedAt
 
