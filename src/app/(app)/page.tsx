@@ -32,6 +32,7 @@ interface WeekCell {
   dayLetter: string;
   status: DayStatus;
   workoutTypes: WorkoutType[];
+  isRest: boolean;
 }
 
 function buildWeekCells(weekWorkouts: PlannedWorkout[]): WeekCell[] {
@@ -58,28 +59,31 @@ function buildWeekCells(weekWorkouts: PlannedWorkout[]): WeekCell[] {
     const workouts = byDay.get(key) ?? [];
     const isPast = d < new Date(new Date().setHours(0,0,0,0));
     const isToday = key === todayKey;
-    const anyCompleted = workouts.some((w) => w.logId !== null);
     const isDayOff = workouts.length > 0 && workouts.every((w) => w.isDayOff);
+    const plannedWorkouts = workouts.filter((w) => !w.isDayOff && w.type !== "REST");
+    const hasPlanned = plannedWorkouts.length > 0;
+    const anyCompleted = plannedWorkouts.some((w) => w.logId !== null);
 
     let status: DayStatus;
     if (isToday) {
       status = "today";
-    } else if (isPast) {
+    } else if (isPast && hasPlanned) {
+      // Only mark missed if there were actual workouts planned
       status = anyCompleted ? "completed" : "missed";
+    } else if (isPast) {
+      // Past day with no planned workouts (or day-off) — neutral
+      status = "future";
     } else {
       status = "future";
     }
 
-    const workoutTypes = isDayOff
-      ? []
-      : workouts
-          .filter((w) => !w.isDayOff && w.type !== "REST")
-          .map((w) => w.type as WorkoutType);
+    const workoutTypes = plannedWorkouts.map((w) => w.type as WorkoutType);
 
     return {
       dayLetter: DAY_LETTERS[d.getDay()], // 0=Su,1=M,...,6=Sa
       status,
       workoutTypes,
+      isRest: isDayOff, // only true day-offs; empty days handled by workoutTypes.length === 0
     };
   });
 }
@@ -151,13 +155,14 @@ export default async function HomePage() {
       <section>
         <h2 className="text-[16px] font-semibold text-core-gray-400 mb-3">Week At A Glance</h2>
         <div className="bg-core-background rounded-[var(--radius-m)] p-3 shadow-[var(--shadow-card)]">
-          <div className="grid grid-cols-7 gap-1">
-            {weekCells.map((cell, i) => (
+          <div className="grid grid-cols-7 gap-1 h-[87px]">
+            {weekCells.map((cell) => (
               <AtAGlanceCell
-                key={i}
+                key={cell.dayLetter}
                 dayLetter={cell.dayLetter}
                 status={cell.status}
                 workoutTypes={cell.workoutTypes}
+                isRest={cell.isRest}
               />
             ))}
           </div>
